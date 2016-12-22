@@ -11219,7 +11219,7 @@
 		_createClass(StickyHeader, [{
 			key: 'refreshWaypoints',
 			value: function refreshWaypoints() {
-				this.lazyImages.load(function () {
+				this.lazyImages.on(function () {
 					Waypoint.refreshAll();
 				});
 			}
@@ -11639,17 +11639,17 @@
 		_createClass(Modal, [{
 			key: "events",
 			value: function events() {
-				//clicking the open modal button
+				//clicking the open modal button:
 				this.openModalButton.click(this.openModal.bind(this));
-				//clicking the x close modal button
+				//clicking the x close modal button:
 				this.closeModalButton.click(this.closeModal.bind(this));
-				// pushes any key
+				// pushes any key:
 				(0, _jquery2.default)(document).keyup(this.keyPressHandler.bind(this));
 			}
 		}, {
 			key: "keyPressHandler",
-			value: function keyPressHandler(esc) {
-				if (esc.keyCode == 27) {
+			value: function keyPressHandler(e) {
+				if (e.keyCode == 27) {
 					this.closeModal();
 				}
 			}
